@@ -6,8 +6,23 @@
     </x-slot>
 
     <x-slot name="slot">
+        <!-- FEATURED ITEMS -->
+
+
+        <!-- OVERVIEW LOTS -->
+        <div class="grid gap-4 grid-cols-3 grid-rows-3">
+
         @foreach($lots as $lot)
-            <li> {{ $lot->name }}</li>
+                <a href="{{ route('lots.view', [$lot]) }}">
+                    <ul>
+                        <li> {{ $lot->name }}</li>
+                        @if ($lot->started_at >= now() )
+                            <li> Starts at: {{ $lot->started_at->format("d/m/Y h:i") }}</li>
+                        @endif
+                        <li> Ends at: {{ $lot->ended_at->format("d/m/Y") }}
+                    </ul>
+                </a>
         @endforeach
+        </div>
     </x-slot>
 </x-app-layout>
