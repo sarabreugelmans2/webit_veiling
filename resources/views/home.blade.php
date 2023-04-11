@@ -4,4 +4,10 @@
             {{ __('Home') }}
         </h2>
     </x-slot>
+
+    <x-slot name="slot">
+        @foreach($lots as $lot)
+            <li> {{ $lot->name }}</li>
+        @endforeach
+    </x-slot>
 </x-app-layout>

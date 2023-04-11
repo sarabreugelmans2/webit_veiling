@@ -64,14 +64,14 @@ class LotResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\ItemsRelationManager::class
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -79,5 +79,5 @@ class LotResource extends Resource
             'create' => Pages\CreateLot::route('/create'),
             'edit' => Pages\EditLot::route('/{record}/edit'),
         ];
-    }    
+    }
 }
