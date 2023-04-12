@@ -47,12 +47,7 @@ class LotResource extends Resource
                 Tables\Columns\TextColumn::make('ended_at')
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('published_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('description'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+                    ->dateTime()
             ])
             ->filters([
                 //
