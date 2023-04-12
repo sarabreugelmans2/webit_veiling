@@ -21,10 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'show'])->name('home');
 Route::get('/lots/{lot}',[LotController::class, 'show'])->name('lots.view');
 Route::get('/items/{item}',[ItemController::class, 'show'])->name('items.view');
+Route::post('/items/{item}/bid',[ItemController::class, 'bid'])->name('items.bid');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

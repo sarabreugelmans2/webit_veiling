@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Item extends Model
 {
@@ -25,8 +26,14 @@ class Item extends Model
         return $this->hasMany(Bid::class);
     }
 
+    public function highestBid(): HasOne
+    {
+        return $this->bids()->one()->ofMany('amount', 'max');
+    }
+
     public function scopeFeatured(Builder $query): void
     {
         $query->where('featured', true);
     }
+
 }
