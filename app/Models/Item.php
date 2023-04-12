@@ -8,10 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Item extends Model
+class Item extends Model implements hasMedia
 {
     use HasFactory;
+    use InteractsWithMedia;
 
     protected $fillable = ['name', 'description', 'start_price', 'featured', 'lot_id' ];
 
@@ -34,6 +37,11 @@ class Item extends Model
     public function scopeFeatured(Builder $query): void
     {
         $query->where('featured', true);
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('pet_images')->useDisk('public');
     }
 
 }

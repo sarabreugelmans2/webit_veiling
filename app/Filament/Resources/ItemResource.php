@@ -6,6 +6,7 @@ use App\Filament\Resources\ItemResource\Pages;
 use App\Filament\Resources\ItemResource\RelationManagers;
 use App\Models\Item;
 use Filament\Forms;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -37,6 +38,8 @@ class ItemResource extends Resource
                     ->required(),
                 Forms\Components\Toggle::make('featured')
                     ->required(),
+                SpatieMediaLibraryFileUpload::make('img')->collection('pet_images')->multiple(),
+
             ]);
     }
 

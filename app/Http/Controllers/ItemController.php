@@ -26,11 +26,13 @@ class ItemController extends Controller
         $highest_bid = $item->highestBid;
 
         $bid = new Bid();
-        if($validated['amount'] <= $highest_bid->amount ){
-            $error = \Illuminate\Validation\ValidationException::withMessages([
-                'amount' => ['Looks like someone already bid higher, please try again'],
-            ]);
-            throw $error;
+        if($highest_bid){
+            if ($validated['amount'] <= $highest_bid->amount) {
+                $error = \Illuminate\Validation\ValidationException::withMessages([
+                    'amount' => ['Looks like someone already bid higher, please try again'],
+                ]);
+                throw $error;
+            }
         }
         $bid->amount = $validated['amount'] ;
         $bid->bid_at = now();

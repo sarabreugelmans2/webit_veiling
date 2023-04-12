@@ -6,6 +6,7 @@ use App\Filament\Resources\LotResource\Pages;
 use App\Filament\Resources\LotResource\RelationManagers;
 use App\Models\Lot;
 use Filament\Forms;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -34,6 +35,7 @@ class LotResource extends Resource
                     ->required(),
                 Forms\Components\Textarea::make('description')
                     ->required(),
+                SpatieMediaLibraryFileUpload::make('img')->collection('lot_image'),
             ]);
     }
 

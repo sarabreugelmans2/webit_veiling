@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'show'])->name('home');
-Route::get('/lots/{lot}',[LotController::class, 'show'])->name('lots.view');
-Route::get('/items/{item}',[ItemController::class, 'show'])->name('items.view');
-Route::post('/items/{item}/bid',[ItemController::class, 'bid'])->name('items.bid');
+Route::get('/lots/{lot}', [LotController::class, 'show'])->name('lots.view');
+Route::get('/items/{item}', [ItemController::class, 'show'])->name('items.view');
+Route::post('/items/{item}/bid', [ItemController::class, 'bid'])->name('items.bid');
 
 
 Route::middleware('auth')->group(function () {
@@ -30,4 +30,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

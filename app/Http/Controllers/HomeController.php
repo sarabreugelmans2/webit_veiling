@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function show(): View
     {
         return view('home', [
-            'lots' =>Lot::published()->get(),
+            'lots' => Lot::published()->get(),
             'featured_items' => Item::featured()->get()
         ]);
     }
