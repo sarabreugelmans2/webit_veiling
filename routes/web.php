@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BidController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LotController;
@@ -25,9 +26,15 @@ Route::post('/items/{item}/bid', [ItemController::class, 'bid'])->name('items.bi
 
 
 Route::middleware('auth')->group(function () {
+    Route::get('/profile/bids', [BidController::class, 'index'])->name('profile.bids.index');
+    Route::get('/profile/bids/{bid}', [BidController::class, 'show'])->name('profile.bids.show');
+    Route::post('/profile/bids/{bid}', [BidController::class, 'edit'])->name('profile.bids.edit');
+    Route::post('/profile/bids/{bid}/delete', [BidController::class, 'destroy'])->name('profile.bids.destroy');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
 });
 
 require __DIR__ . '/auth.php';

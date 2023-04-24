@@ -11,10 +11,22 @@ module.exports = {
 
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+            backgroundImage: {
+                'stripes': "url('https://www.webit.be/wp-content/themes/webit/images/stripes.png')",
             },
+            content:  {
+                'stripes': "url('https://www.webit.be/wp-content/themes/webit/images/stripes.png')",
+            },
+            colors: {
+                'webit': '#5BBDEE'
+            },
+
         },
+
+        fontFamily: {
+            serif: ['Martel', ...defaultTheme.fontFamily.serif],
+        },
+
     },
 
     plugins: [require('@tailwindcss/forms')],
