@@ -7,8 +7,8 @@
     </x-slot>
 
     <x-slot name="slot">
-        <a class="border border-2 border-black rounded-md border-solid px-10 py-2 uppercase text-xs bg-white " href="{{route('lots.view', [$item->lot])}} ">Back to overview</a>
-        <x-card class="mx-auto w-2/3 grid md:grid-cols-2 mt-5 gap-6">
+        <a class="border rounded-md border-solid px-10 py-2 uppercase text-xs bg-white " href="{{route('lots.view', [$item->lot])}} ">Back to overview</a>
+        <x-card class="mx-auto w-2/3 grid md:grid-cols-2 mt-5 gap-6 bg-white p-5">
 
             <div class="">
                 @if($item->getMedia('pet_images')->count() !== 1 )
@@ -34,9 +34,9 @@
                 @endif
 
                 @if ($item->bids->isNotEmpty())
-                    <table class="w-full sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5 text-center ">
+                    <table class="w-full sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5 text-center">
                         <thead>
-                        <tr class="bg-gray-400 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+                        <tr class="bg-slate-100  flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
                             <th>User</th>
                             <th>Bid</th>
                         </tr>
@@ -55,13 +55,13 @@
                 @endif
 
                 @if(auth()->check())
-                    <form method="POST" action="{{route('items.bid', [$item])}}" class="bg-gray-200 p-2">
+                    <form method="POST" action="{{route('items.bid', [$item])}}" class="mt-6">
                         @csrf
-                        <p class="uppercase text-sm font-bold pb-1">Place your bid</p>
+
                         <!-- form request -->
-                        <div class="mb-6 flex gap-5">
-                            <x-number-input type="number" name="amount" required></x-number-input>
-                            <button class=" rounded-md bg-black px-10 py-2 text-white" type="submit"> Bid</button>
+                        <div class="">
+                            <x-number-input type="number" name="amount" placeholder="Place your bid" required></x-number-input>
+                            <x-primary-button  type="submit"> Bid</x-primary-button>
                         </div>
                     </form>
                 @else
