@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreBidRequest;
 use App\Models\Bid;
 use App\Models\Item;
-use App\Models\Lot;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -42,6 +40,5 @@ class ItemController extends Controller
         $bid->save();
 
         return Redirect::route('items.view', [$item])->with('status', 'bid_placed');
-
     }
 }

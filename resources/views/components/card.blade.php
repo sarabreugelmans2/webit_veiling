@@ -1,4 +1,4 @@
 
-<div  {!! $attributes->merge(['class' => 'flex flex-col']) !!} >
+<div  {!! $attributes->merge(['class' => 'mt-5 flex flex-col']) !!} >
     {{ $slot }}
 </div>

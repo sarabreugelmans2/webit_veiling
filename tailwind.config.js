@@ -25,6 +25,7 @@ module.exports = {
 
         fontFamily: {
             serif: ['Martel', ...defaultTheme.fontFamily.serif],
+            'sans': ['Proxima', ...defaultTheme.fontFamily.sans]
         },
 
     },

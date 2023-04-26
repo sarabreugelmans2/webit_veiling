@@ -18,17 +18,10 @@
 <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
     @include('layouts.navigation')
 
-    <!-- Page Heading -->
-    @if (isset($header))
-        <header class="bg-white dark:bg-gray-800 shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                {{ $header }}
-            </div>
-        </header>
-    @endif
+
 
     @if ($errors->any())
-        <div class="alert alert-danger">
+        <div class="alert alert-danger px-2">
             <ul>
                 @foreach ($errors->all() as $error)
                     <li class="text-red-700">{{ $error }}</li>
@@ -38,7 +31,7 @@
     @endif
 
     <!-- Page Content -->
-    <main class="container mx-auto py-5">
+    <main class="container mx-auto py-5 px-2">
         {{ $slot }}
     </main>
 </div>
